@@ -11,7 +11,7 @@ class Docente extends Persona {
     Docente(String codigo, String nombres, String direccion, List<String> telefonos) {
         super(codigo, nombres, direccion, telefonos);
         if (codigo.length() > 4) {
-            throw new IllegalArgumentException("El código del docente debe tener máximo 4 dígitos");
+            throw new IllegalArgumentException("El codigo del docente debe tener máximo 4 dígitos");
         }
     }
 
