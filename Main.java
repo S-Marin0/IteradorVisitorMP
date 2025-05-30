@@ -23,22 +23,40 @@ public class Main {
     public static void main(String[] args) {
         List<String> telefonos1 = Arrays.asList("123456789");
         List<String> telefonos2 = Arrays.asList();
+        List<String> telefonos3 = Arrays.asList("987654321");
 
         Persona estudiante1 = new Estudiante("2023", "Ana Pérez", "Calle 123", telefonos1);
         Persona docente1 = new Docente("1234", "Carlos Ruiz", "Carrera 45", telefonos2);
+        Persona estudiante2 = new Estudiante("2024", "Beatriz Gómez", "Avenida 5", telefonos3);
+        
+        Set<Persona> personasSetNombre = new TreeSet<>(Comparator.comparing(p -> p.nombres));
+        personasSetNombre.add(estudiante1);
+        personasSetNombre.add(docente1);
+        personasSetNombre.add(estudiante2);
 
-        Set<Persona> personasSet = new TreeSet<>(Comparator.comparing(p -> p.nombres));
-        personasSet.add(estudiante1);
-        personasSet.add(docente1);
+        PersonaColeccion coleccionNombre = new PersonaColeccion(personasSetNombre);
+        
+        Set<Persona> personasSetCodigo = new TreeSet<>(Comparator.comparing(p -> p.codigo));
+        personasSetCodigo.add(estudiante1);
+        personasSetCodigo.add(docente1);
+        personasSetCodigo.add(estudiante2);
 
-        PersonaColeccion coleccion = new PersonaColeccion(personasSet);
+        PersonaColeccion coleccionCodigo = new PersonaColeccion(personasSetCodigo);
+
         ValidadorDatosVisitor validador = new ValidadorDatosVisitor();
+        MostrarInformacionVisitor mostrar = new MostrarInformacionVisitor();
 
-        // Iterador y Visitor
-        for (Persona persona : coleccion) {
+        System.out.println("Primer recorrido (por nombre): Validar datos y mostrar información");
+        for (Persona persona : coleccionNombre) {
             persona.aceptar(validador);
+            persona.aceptar(mostrar);
         }
 
-        System.out.println("Recorrido completo.");
+        System.out.println("\nSegundo recorrido (por código): Mostrar información");
+        for (Persona persona : coleccionCodigo) {
+            persona.aceptar(mostrar);
+        }
+
+        System.out.println("\nRecorridos completos.");
     }
 }
