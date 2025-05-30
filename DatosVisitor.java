@@ -7,30 +7,30 @@ package visitor;
 
 import java.util.*;
 
-public class ValidadorDatosVisitor implements PersonaVisitor {
+class ValidadorDatosVisitor implements PersonaVisitor {
     @Override
     public void visitarEstudiante(Estudiante estudiante) {
         if (!estudiante.datosCompletos()) {
-            System.out.println("Estudiante con código " + estudiante.codigo + " tiene datos incompletos.");
+            System.out.println("Estudiante con codigo " + estudiante.codigo + " tiene datos incompletos.");
         }
     }
 
     @Override
     public void visitarDocente(Docente docente) {
         if (!docente.datosCompletos()) {
-            System.out.println("Docente con código " + docente.codigo + " tiene datos incompletos.");
+            System.out.println("Docente con codigo " + docente.codigo + " tiene datos incompletos.");
         }
     }
 }
 
-public class MostrarInformacionVisitor implements PersonaVisitor {
+class MostrarInformacionVisitor implements PersonaVisitor {
     @Override
     public void visitarEstudiante(Estudiante estudiante) {
-        System.out.println("Estudiante: " + estudiante.nombres + ", Dirección: " + estudiante.direccion);
+        System.out.println("Estudiante: " + estudiante.nombres + ", Direccion: " + estudiante.direccion);
     }
 
     @Override
     public void visitarDocente(Docente docente) {
-        System.out.println("Docente: " + docente.nombres + ", Dirección: " + docente.direccion);
+        System.out.println("Docente: " + docente.nombres + ", Direccion: " + docente.direccion);
     }
 }
