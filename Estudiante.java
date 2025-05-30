@@ -7,16 +7,13 @@ package visitor;
 import java.util.List;
 
 
-class Docente extends Persona {
-    Docente(String codigo, String nombres, String direccion, List<String> telefonos) {
+class Estudiante extends Persona {
+    Estudiante(String codigo, String nombres, String direccion, List<String> telefonos) {
         super(codigo, nombres, direccion, telefonos);
-        if (codigo.length() > 4) {
-            throw new IllegalArgumentException("El codigo del docente debe tener máximo 4 dígitos");
-        }
     }
 
     @Override
     void aceptar(PersonaVisitor visitor) {
-        visitor.visitarDocente(this);
+        visitor.visitarEstudiante(this);
     }
 }
