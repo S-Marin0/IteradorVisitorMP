@@ -22,3 +22,15 @@ public class ValidadorDatosVisitor implements PersonaVisitor {
         }
     }
 }
+
+public class MostrarInformacionVisitor implements PersonaVisitor {
+    @Override
+    public void visitarEstudiante(Estudiante estudiante) {
+        System.out.println("Estudiante: " + estudiante.nombres + ", Dirección: " + estudiante.direccion);
+    }
+
+    @Override
+    public void visitarDocente(Docente docente) {
+        System.out.println("Docente: " + docente.nombres + ", Dirección: " + docente.direccion);
+    }
+}
