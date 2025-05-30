@@ -11,14 +11,14 @@ public class ValidadorDatosVisitor implements PersonaVisitor {
     @Override
     public void visitarEstudiante(Estudiante estudiante) {
         if (!estudiante.datosCompletos()) {
-            System.out.println("Estudiante con código " + estudiante.codigo + " tiene datos incompletos. Enviar notificación.");
+            System.out.println("Estudiante con código " + estudiante.codigo + " tiene datos incompletos.");
         }
     }
 
     @Override
     public void visitarDocente(Docente docente) {
         if (!docente.datosCompletos()) {
-            System.out.println("Docente con código " + docente.codigo + " tiene datos incompletos. Enviar notificación.");
+            System.out.println("Docente con código " + docente.codigo + " tiene datos incompletos.");
         }
     }
 }
