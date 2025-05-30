@@ -20,6 +20,7 @@ abstract class Persona {
     }
 
     abstract void aceptar(PersonaVisitor visitor);
+
     boolean datosCompletos() {
         return codigo != null && nombres != null && direccion != null && !telefonos.isEmpty();
     }
